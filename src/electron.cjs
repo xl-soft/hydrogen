@@ -26,7 +26,7 @@ const config = {
 let win
 
 const load = serve({directory: "."})
-const devload = port => win.loadURL(`http://localhost:${port}`).catch(() => setTimeout(() => { vite(port); }, 200))
+const devload = port => win.loadURL(`http://localhost:${port}`).catch(() => setTimeout(() => { devload(port); }, 200))
 
 function main() {
     win = new BrowserWindow(config.electron)
