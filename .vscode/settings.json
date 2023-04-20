@@ -1,0 +1,136 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "explorer.confirmDelete": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "svelte.enable-ts-plugin": true,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "explorer.confirmDragAndDrop": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ],
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "redhat.telemetry.enabled": true,
+    "git.confirmSync": false,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "prettier.tabWidth": 4,
+    "editor.detectIndentation": false,
+    "terminal.explorerKind": "external",
+    "terminal.external.windowsExec": "wt",
+    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
+    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+    "editor.fontLigatures": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.unicodeHighlight.allowedLocales": {
+        "ru": true
+    },
+    "editor.unicodeHighlight.allowedCharacters": {
+        "❮": true,
+        "❯": true
+    },
+    "editor.accessibilitySupport": "off",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "rest-client.fontFamily": "Cascadia Code",
+    "editor.codeLensFontFamily": "CaskaydiaCove Nerd Font Mono",
+    "editor.inlayHints.fontFamily": "Cascadia Code",
+    "debug.console.fontFamily": "CaskaydiaCove Nerd Font Mono",
+    "markdown.preview.fontFamily": "CaskaydiaCove Nerd Font Mono",
+    "scm.inputFontFamily": "CaskaydiaCove Nerd Font Mono",
+    "notebook.outputFontFamily": "CaskaydiaCove Nerd Font Mono",
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.linkedEditing": true,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.colorTheme": "Default Dark+",
+    "cSpell.language": "en,ru",
+    "cSpell.userWords": [
+        "инстанс",
+        "инстанса",
+        "инстансами",
+        "displaydata"
+    ],
+    "commitlint.config.extend.rules": {
+        "body-leading-blank": [1, "always"],
+        "body-max-line-length": [2, "always", 100],
+        "footer-leading-blank": [1, "always"],
+        "footer-max-line-length": [2, "always", 100],
+        "header-max-length": [2, "always", 50],
+        "scope-case": [2, "always", "lower-case"],
+        "subject-case": [2, "never", ["sentence-case", "start-case", "pascal-case", "upper-case"]],
+        "subject-empty": [2, "never"],
+        "subject-full-stop": [2, "never", "."],
+        "type-case": [2, "always", "lower-case"],
+        "type-empty": [2, "never"],
+        "type-enum": [
+          2,
+          "always",
+          ["init", "feat", "fix", "docs", "refactor", "build", "revert", "test"]
+        ]
+    },
+    "hidefiles.version": "2.0.0",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
+    } 

@@ -1,0 +1,33 @@
+{
+  "author": "xlsoftware",
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^1.0.0-next.48",
+    "@sveltejs/kit": "^1.0.0-next.562",
+    "concurrently": "^6.5.1",
+    "electron": "^23.1.2",
+    "electron-builder": "^23.6.0",
+    "svelte": "^3.53.1",
+    "svelte-preprocess": "^4.10.7",
+    "vite": "^4.0.4"
+  },
+  "type": "module",
+  "license": "",
+  "private": true,
+  "dependencies": {
+    "@xl-soft/xl-ui": "^0.1.4",
+    "appdata-path": "^1.0.0",
+    "electron-serve": "^1.1.0",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "main": "src/electron.cjs",
+  "scripts": {
+    "dev": "concurrently --kill-others \"vite dev\" \"electron src/electron.cjs\"",
+    "build": "npm run vite:build && electron-builder --config electron-builder.config.json",
+    "build:dir": "npm run vite:build && electron-builder --config electron-builder.config.json --dir",
+    "vite:dev": "vite dev",
+    "vite:build": "vite build"
+  },
+  "version": "1.0.0",
+  "name": "xl.soft.xlauncher.dashboard",
+  "displayName": "Xlauncher Dashboard"
+}
