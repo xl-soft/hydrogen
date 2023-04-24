@@ -5,6 +5,5 @@ export default {
     kit: {
         adapter: adapter(),
     },
-
     preprocess: preprocess(),
-}
+};

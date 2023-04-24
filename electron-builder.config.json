@@ -1,5 +1,5 @@
 {
     "asar": true,
     "directories": { "output": "dist" },
-    "files": ["src/electron.cjs", { "from": "build", "to": "" }]
+    "files": [{ "from": "build", "to": "" }]
 }
