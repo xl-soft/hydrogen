@@ -1,6 +1,7 @@
 {
   "author": "xlsoftware",
   "devDependencies": {
+    "@sveltejs/adapter-node": "^1.2.4",
     "@sveltejs/adapter-static": "^1.0.0-next.48",
     "@sveltejs/kit": "^1.0.0-next.562",
     "electron": "^23.1.2",
@@ -9,6 +10,7 @@
     "svelte-preprocess": "^4.10.7",
     "vite": "^4.0.4"
   },
+  "type": "module",
   "license": "",
   "private": true,
   "dependencies": {
@@ -16,7 +18,9 @@
     "appdata-path": "^1.0.0",
     "concurrently": "^8.0.1",
     "electron-serve": "^1.1.0",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   },
   "main": "electron/main.ts",
   "scripts": {
