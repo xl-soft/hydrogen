@@ -10,7 +10,6 @@
     "svelte-preprocess": "^4.10.7",
     "vite": "^4.0.4"
   },
-  "type": "module",
   "license": "",
   "private": true,
   "dependencies": {

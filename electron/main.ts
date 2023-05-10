@@ -2,7 +2,10 @@ import { app as Electron } from 'electron'
 import { HydrogenWindow } from "./window"
 
 let main = new HydrogenWindow({
-    id: 'main'
+    id: 'main',
+    config: {
+        title: 'ХУЙ'
+    }
 })
 
 Electron.once("ready", main.spawn)

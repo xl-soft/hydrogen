@@ -1,5 +1,4 @@
 import { BrowserWindow, app as HydrogenElectron, BrowserWindow as HydrogenElectronBrowserWindow, ipcMain as HydrogenElectronIpc, BrowserWindowConstructorOptions } from "electron"
-import HydrogenElectronServe from "electron-serve"
 import HydrogenElectronConfigConstructor from "./config"
 
 interface HydrogenWindowOptions {
@@ -7,41 +6,37 @@ interface HydrogenWindowOptions {
     config?: BrowserWindowConstructorOptions,
 }
 
-abstract class Hydrogen {
+class HydrogenWindow {
+
     public HydrogenElectronWindow: BrowserWindow | undefined = undefined
-    public HydrogenElectronConfigBase: BrowserWindowConstructorOptions = {}
-    protected HydrogenElectronConfig
+    private HydrogenElectronConfig: BrowserWindowConstructorOptions = {}
+    private HydrogenWindow: HydrogenWindowOptions = { id: 'main' }
 
-    protected HydrogenElectronLoad() {
-        this.HydrogenElectronWindow!.loadFile(`./index.html?windowid=${this.options.id}`)
+    private HydrogenElectronLoad() {
+        console.log('PROD')
+        // this.HydrogenElectronWindow!.loadFile(`./index.html?windowid=${this.options.id}`)
     }
 
-    protected HydrogenElectronLoadDev(port: number) {
-        let HydrogenElectronLoadDevRetry = 0
-        try {
-            this.HydrogenElectronWindow!.loadURL(`http://localhost:${port}?windowid=${this.options.id}`)
-        } catch (error) {
-            HydrogenElectronLoadDevRetry++
-            if (HydrogenElectronLoadDevRetry > 5) return
-            console.log(error)
-            setTimeout(() => { this.HydrogenElectronLoadDev(port); }, 200)
-        }
+    private HydrogenElectronLoadDev(port: number) {
+        console.log(port, 'DEV')
+        // this.HydrogenElectronWindow!.loadURL(`http://localhost:${port}?windowid=${this.options.id}`)
     }
 
-    constructor(protected options: HydrogenWindowOptions) {
-        this.HydrogenElectronConfig = new HydrogenElectronConfigConstructor(this.options.config)
-        this.HydrogenElectronConfigBase = {...this.HydrogenElectronConfig, ...this.options.config}
+    constructor(private options: HydrogenWindowOptions) {
+        this.HydrogenWindow.id = this.options.id
+        console.log(this.HydrogenWindow, 'constructor')
+        this.HydrogenElectronConfig = new HydrogenElectronConfigConstructor(options.config).get()
+        this.HydrogenElectronConfig = {...this.HydrogenElectronConfig, ...options.config}
     }
-}
 
-class HydrogenWindow extends Hydrogen {
     public spawn() {
-        this.HydrogenElectronWindow = new HydrogenElectronBrowserWindow(this.HydrogenElectronConfig.get())
+        console.log(this.HydrogenWindow, 'spawn')
+        this.HydrogenElectronWindow = new HydrogenElectronBrowserWindow(this.HydrogenElectronConfig)
         this.HydrogenElectronWindow.once("close", () => process.exit(0) )
-        HydrogenElectron.isPackaged ? this.HydrogenElectronLoadDev(3000) : this.HydrogenElectronLoad()
-        HydrogenElectronIpc.on(`${this.options.id}:close`, e => this.HydrogenElectronWindow?.close())
-        HydrogenElectronIpc.on(`${this.options.id}:minimize`, e => this.HydrogenElectronWindow?.minimize())
-        HydrogenElectronIpc.on(`${this.options.id}:maximize`, e => this.HydrogenElectronWindow?.isMaximized() ? this.HydrogenElectronWindow?.unmaximize() : this.HydrogenElectronWindow?.maximize() )
+        // HydrogenElectron.isPackaged ? console.log(this.HydrogenWindowOptions) : console.log(this.HydrogenWindowOptions)
+        HydrogenElectronIpc.on(`${this.HydrogenWindow.id}:close`, (e: any) => this.HydrogenElectronWindow?.close())
+        HydrogenElectronIpc.on(`${this.HydrogenWindow.id}:minimize`, (e: any) => this.HydrogenElectronWindow?.minimize())
+        HydrogenElectronIpc.on(`${this.HydrogenWindow.id}:maximize`, (e: any) => this.HydrogenElectronWindow?.isMaximized() ? this.HydrogenElectronWindow?.unmaximize() : this.HydrogenElectronWindow?.maximize() )
     }
 }
 
