@@ -1,5 +1,6 @@
 {
     "asar": true,
     "directories": { "output": "dist" },
-    "files": [{ "from": "build", "to": "" }]
+    "files": [{ "from": "build", "to": "" }],
+    "appId": "xl.launcher.manager"
 }

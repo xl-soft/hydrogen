@@ -4,32 +4,40 @@
     "@sveltejs/adapter-node": "^1.2.4",
     "@sveltejs/adapter-static": "^1.0.0-next.48",
     "@sveltejs/kit": "^1.0.0-next.562",
+    "@types/uuid": "^9.0.1",
     "electron": "^23.1.2",
-    "electron-builder": "^23.6.0",
+    "electron-builder": "^24.4.0",
     "svelte": "^3.53.1",
     "svelte-preprocess": "^4.10.7",
     "vite": "^4.0.4"
   },
-  "license": "",
+  "license": "ISC",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@xl-soft/xl-ui": "^0.1.4",
-    "appdata-path": "^1.0.0",
     "concurrently": "^8.0.1",
-    "electron-serve": "^1.1.0",
-    "electron-squirrel-startup": "^1.0.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "dotenv": "^16.0.3",
+    "typescript": "^4.9.5",
+    "uuid": "^9.0.0"
   },
   "main": "electron/main.ts",
   "scripts": {
-    "dev": "concurrently --kill-others \"tsc && electron build/main.js\" \"vite dev\"",
+    "dev": "concurrently --kill-others \"tsc && cd build && ren build.js build.cjs && node build.cjs && npm i && ren build.cjs build.js && electron main.js\" \"vite dev\"",
     "dev:vite": "vite dev",
     "build": "vite build && tsc && electron-builder --config electron-builder.config.json",
     "build:dir": "vite build && tsc && electron-builder --config electron-builder.config.json --dir",
-    "build:vite": "vite build"
+    "build:vite": "vite build",
+    "setup": "npm i"
   },
   "version": "1.0.0",
   "name": "xl.soft.xlauncher.dashboard",
-  "displayName": "Xlauncher Dashboard"
+  "displayName": "Xlauncher Dashboard",
+  "description": "",
+  "keywords": [],
+  "workspaces": [
+    "..",
+    "",
+    "build"
+  ]
 }
